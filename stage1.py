@@ -1,13 +1,9 @@
-import uno,sys
+import uno,sys,msgbox
 _exportedScripts = []
 
 def test1():
 
-    doc = XSCRIPTCONTEXT.getDocument()
-
-    text = doc.getText()
-
-    text.setString('Hello World in Python in Writer')
+    showMessage("your mom")
 
     return
 
@@ -46,5 +42,13 @@ def PythonVersion(*args):
         tRange.String += i
     return None
 _exportedScripts.append("PythonVersion")
+
+MsgBox = msgbox.MsgBox
+
+def showMessage(text):
+    box = MsgBox(XSCRIPTCONTEXT.getComponentContext())
+    box.renderFromBoxSize(500)
+    box.show(text, None, "testbox")
+
 def getScript():
     return _exportedScripts

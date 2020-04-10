@@ -1,11 +1,7 @@
 
 def test1():
 
-    doc = XSCRIPTCONTEXT.getDocument()
-
-    text = doc.getText()
-
-    text.setString('Hello World in Python in Writer')
+    showMessage("your mom")
 
     return
 

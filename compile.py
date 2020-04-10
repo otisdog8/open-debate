@@ -2,7 +2,7 @@ import os, python_minifier
 
 print("Compiling into single python file")
 
-imports = ["uno", "sys"]
+imports = ["uno", "sys", "msgbox"]
 importstring = "import "
 for name in imports:
     importstring += name + ','
