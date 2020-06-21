@@ -1,3 +1,6 @@
+
+print("Made by Jacob Root")
+print("https://github.com/otisdog8/open-debate for source and compiling info")
 import uno,sys,msgbox
 _exportedScripts = []
 
@@ -114,5 +117,8 @@ def inputbox(message, title="", default="", x=None, y=None):
     ret = edit.getModel().Text if dialog.execute() else ""
     dialog.dispose()
     return ret
+#Internal settings API
+#This handles calls to the DB API that concern settings specifically#Internal database API, handles calls to a specific internal database#API for formatting, also maybe has hooks into buttons for format
+#Handle all connections to the wiki
 def getScript():
     return _exportedScripts

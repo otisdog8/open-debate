@@ -1,5 +1,7 @@
 _B='Text'
 _A=None
+print('Made by Jacob Root')
+print('https://github.com/otisdog8/open-debate for source and compiling info')
 import uno,sys,msgbox
 _exportedScripts=[]
 def test1():showMessage('your mom');return

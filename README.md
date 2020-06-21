@@ -17,3 +17,7 @@ https://wiki.openoffice.org/wiki/Documentation/DevGuide/OpenOffice.org_Developer
 https://api.libreoffice.org/
 https://help.libreoffice.org/6.3/en-US/text/sbasic/shared/01040000.html?&DbPAR=WRITER&System=UNIX
 https://help.libreoffice.org/6.3/en-US/text/sbasic/python/python_listener.html?&DbPAR=WRITER&System=UNIX
+
+
+TOLIST:
+1. Display menus

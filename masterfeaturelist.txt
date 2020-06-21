@@ -1,0 +1,7 @@
+Internet:
+    Tabroom support
+    DebateWiki Support 
+    Email support (start with gmail)
+    Speechdrop Support
+Internals:
+

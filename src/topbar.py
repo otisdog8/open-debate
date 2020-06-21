@@ -1,0 +1,1 @@
+#Handles all configuration related to the toolbar. Extensions should modify this part to get their own tilebar buttons
