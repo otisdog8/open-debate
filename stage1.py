@@ -11,13 +11,22 @@ def test1():
     return
 
 def test2():
+    from com.sun.star.beans import PropertyValue
 
+    # open a writer document object
     doc = XSCRIPTCONTEXT.getDocument()
+
+
+
+    # NOTE THAT ARGS IS A TUPLE OF PROPERTY VALUES
+
+
+    # close the document
 
     text = doc.getText()
 
     text.setString('Bello World in Python in Writer')
-
+    createToolbar("bruh")
     return
 
 
@@ -119,6 +128,63 @@ def inputbox(message, title="", default="", x=None, y=None):
     return ret
 #Internal settings API
 #This handles calls to the DB API that concern settings specifically#Internal database API, handles calls to a specific internal database#API for formatting, also maybe has hooks into buttons for format
-#Handle all connections to the wiki
+#Handle all connections to the wiki#Handle all connections to tab#Handle all connections to email/email chains#Handle all connections to speechdrop#Handles all configuration related to the toolbar. Extensions should modify this part to get their own tilebar buttons
+def getDocument():
+  return XSCRIPTCONTEXT.getDocument()
+
+def getComponentContext():
+  return XSCRIPTCONTEXT.getComponentContext()
+
+def getInvocationContext():
+  return XSCRIPTCONTEXT.getInvocationContext()
+
+def getDesktop():
+  return XSCRIPTCONTEXT.getDesktop()
+
+def getServiceManager():
+  return getComponentContext().getServiceManager()
+
+def createToolbarItem(ID, lable):
+  from com.sun.star.beans import PropertyValue
+  from com.sun.star.ui.ItemType import DEFAULT
+  item = []
+  for i in range(4):
+    item.append(PropertyValue())
+  item[0].Name = "CommandURL"
+  item[0].Value = ID
+  item[1].Name = "Label"
+  item[1].Value = lable
+  item[2].Name = "Type"
+  item[2].Value = DEFAULT
+  item[3].Name = "Visible"
+  item[3].Value = True
+  return (item[0], item[1], item[2], item[3])
+
+def createToolbar(name):
+  from com.sun.star.beans import PropertyValue
+  ctx = XSCRIPTCONTEXT.getComponentContext()
+  ToolbarUrl = "private:resource/toolbar/custom_test"
+  supplier = ctx.getServiceManager().createInstanceWithContext("com.sun.star.ui.ModuleUIConfigurationManagerSupplier", ctx)
+  docType = "com.sun.star.text.TextDocument"
+  cfgMgr = supplier.getUIConfigurationManager( docType )
+  settings = cfgMgr.createSettings()
+  settings.UIName = name
+  cmdID = "macro:///Standard.Module1.TBTest()"
+  cmdLable = "name"
+  item = createToolbarItem(cmdID, cmdLable)
+  doc = XSCRIPTCONTEXT.getDocument()
+
+  text = doc.getText()
+
+  text.setString(str(item))
+
+  settings.insertByIndex(0, item)
+
+  if cfgMgr.hasSettings( ToolbarUrl ):
+    cfgMgr.replaceSettings( ToolbarUrl, settings)
+  else:
+    cfgMgr.insertSettings( ToolbarUrl, settings)
+
+
 def getScript():
     return _exportedScripts
