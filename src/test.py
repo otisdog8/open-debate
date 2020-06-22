@@ -21,7 +21,7 @@ def test2():
     text = doc.getText()
 
     text.setString('Bello World in Python in Writer')
-    createToolbar("bruh")
+    createToolbar("test")
     return
 
 
