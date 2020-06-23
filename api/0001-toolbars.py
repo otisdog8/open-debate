@@ -12,7 +12,7 @@ def createToolbarItem(ID, lable):
   item[2].Value = DEFAULT
   item[3].Name = "Visible"
   item[3].Value = True
-  return (item[0], item[1], item[2], item[3])
+  return tuple(item)
 
 def createToolbar(name):
   from com.sun.star.beans import PropertyValue
@@ -23,7 +23,8 @@ def createToolbar(name):
   cfgMgr = supplier.getUIConfigurationManager( docType )
   settings = cfgMgr.createSettings()
   settings.UIName = name
-  cmdID = "macro:///Standard.Module1.TBTest()"
+  #cmdID = "macro:///Standard.Module1.TsBTest()"
+  cmdID = "vnd.sun.star.script:Standard.Module1.TBTest?language=Basic&location=application"
   cmdLable = "name"
   item = createToolbarItem(cmdID, cmdLable)
   doc = XSCRIPTCONTEXT.getDocument()
@@ -32,7 +33,9 @@ def createToolbar(name):
 
   text.setString(str(item))
 
-  settings.insertByIndex(0, item)
+  uno.invoke(
+    settings, "insertByIndex",
+    (0, uno.Any("[]com.sun.star.beans.PropertyValue", item)))
 
   if cfgMgr.hasSettings( ToolbarUrl ):
     cfgMgr.replaceSettings( ToolbarUrl, settings)

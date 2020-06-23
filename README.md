@@ -18,6 +18,12 @@ https://api.libreoffice.org/
 https://help.libreoffice.org/6.3/en-US/text/sbasic/shared/01040000.html?&DbPAR=WRITER&System=UNIX
 https://help.libreoffice.org/6.3/en-US/text/sbasic/python/python_listener.html?&DbPAR=WRITER&System=UNIX
 
+Singleton support
+https://stackoverflow.com/questions/29417113/how-to-call-an-existing-libreoffice-python-macro-from-a-python-script
+
+Macro URLs
+https://ask.libreoffice.org/en/question/52125/execute-a-python-macro-function-from-base-and-return-value-to-base/
+
 
 TOLIST:
 1. Display menus
