@@ -24,7 +24,7 @@ def createToolbar(name):
   settings = cfgMgr.createSettings()
   settings.UIName = name
   #cmdID = "macro:///Standard.Module1.TsBTest()"
-  cmdID = "vnd.sun.star.script:Standard.Module1.TBTest?language=Basic&location=application"
+  cmdID = "vnd.sun.star.script:debate.py$test1?language=Python&location=user"
   cmdLable = "name"
   item = createToolbarItem(cmdID, cmdLable)
   doc = XSCRIPTCONTEXT.getDocument()

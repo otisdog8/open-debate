@@ -4,7 +4,7 @@ print("https://github.com/otisdog8/open-debate for source and compiling info")
 import uno,sys,msgbox
 _exportedScripts = []
 
-def test1():
+def test1(bru = ""):
 
     showMessage("your mom")
 
@@ -170,7 +170,7 @@ def createToolbar(name):
   settings = cfgMgr.createSettings()
   settings.UIName = name
   #cmdID = "macro:///Standard.Module1.TsBTest()"
-  cmdID = "vnd.sun.star.script:Standard.Module1.TBTest?language=Basic&location=application"
+  cmdID = "vnd.sun.star.script:debate.py$test1?language=Python&location=user"
   cmdLable = "name"
   item = createToolbarItem(cmdID, cmdLable)
   doc = XSCRIPTCONTEXT.getDocument()

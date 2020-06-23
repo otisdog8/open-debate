@@ -6,7 +6,7 @@ print('Made by Jacob Root')
 print('https://github.com/otisdog8/open-debate for source and compiling info')
 import uno,sys,msgbox
 _exportedScripts=[]
-def test1():showMessage('your mom');return
+def test1(bru=''):showMessage('your mom');return
 def test2():from com.sun.star.beans import PropertyValue;A=XSCRIPTCONTEXT.getDocument();B=A.getText();B.setString('Bello World in Python in Writer');createToolbar('test');return
 _exportedScripts.append('test2')
 _exportedScripts.append('test1')
@@ -40,7 +40,7 @@ def createToolbarItem(ID,lable):
 	for D in range(4):A.append(B())
 	A[0].Name='CommandURL';A[0].Value=ID;A[1].Name=_D;A[1].Value=lable;A[2].Name='Type';A[2].Value=C;A[3].Name='Visible';A[3].Value=_B;return tuple(A)
 def createToolbar(name):
-	from com.sun.star.beans import PropertyValue;D=XSCRIPTCONTEXT.getComponentContext();C='private:resource/toolbar/custom_test';F=D.getServiceManager().createInstanceWithContext('com.sun.star.ui.ModuleUIConfigurationManagerSupplier',D);G='com.sun.star.text.TextDocument';A=F.getUIConfigurationManager(G);B=A.createSettings();B.UIName=name;H='vnd.sun.star.script:Standard.Module1.TBTest?language=Basic&location=application';I='name';E=createToolbarItem(H,I);J=XSCRIPTCONTEXT.getDocument();K=J.getText();K.setString(str(E));uno.invoke(B,'insertByIndex',(0,uno.Any('[]com.sun.star.beans.PropertyValue',E)))
+	from com.sun.star.beans import PropertyValue;D=XSCRIPTCONTEXT.getComponentContext();C='private:resource/toolbar/custom_test';F=D.getServiceManager().createInstanceWithContext('com.sun.star.ui.ModuleUIConfigurationManagerSupplier',D);G='com.sun.star.text.TextDocument';A=F.getUIConfigurationManager(G);B=A.createSettings();B.UIName=name;H='vnd.sun.star.script:debate.py$test1?language=Python&location=user';I='name';E=createToolbarItem(H,I);J=XSCRIPTCONTEXT.getDocument();K=J.getText();K.setString(str(E));uno.invoke(B,'insertByIndex',(0,uno.Any('[]com.sun.star.beans.PropertyValue',E)))
 	if A.hasSettings(C):A.replaceSettings(C,B)
 	else:A.insertSettings(C,B)
 g_exportedScripts=test2,test1,PythonVersion
